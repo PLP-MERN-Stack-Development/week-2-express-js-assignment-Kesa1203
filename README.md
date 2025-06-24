@@ -1,63 +1,142 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19737546&assignment_repo_type=AssignmentRepo)
-# Express.js RESTful API Assignment
+# 📦 Express.js Products API
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
+## 🔥 Overview
 
-## Assignment Overview
+A RESTful API built with **Express.js** to manage a list of products. Supports full CRUD operations, middleware, error handling, and advanced features like filtering, search, and pagination.
 
-You will:
-1. Set up an Express.js server
-2. Create RESTful API routes for a product resource
-3. Implement custom middleware for logging, authentication, and validation
-4. Add comprehensive error handling
-5. Develop advanced features like filtering, pagination, and search
+---
 
-## Getting Started
+## 📁 File Structure
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Run the server:
-   ```
-   npm start
-   ```
+```
+express-products-api/
+├── server.js
+├── routes/
+├── middleware/
+├── models/
+├── utils/
+├── data/
+├── .env.example
+└── README.md
+```
+---
 
-## Files Included
+## 🧰 Technologies Used
 
-- `Week2-Assignment.md`: Detailed assignment instructions
-- `server.js`: Starter Express.js server file
-- `.env.example`: Example environment variables file
+- Node.js
+- Express.js
+- Body-Parser
+- UUID (for unique IDs)
+- Dotenv (for environment variable management)
+- pnpm (for dependency management)
+- nodemon (for live-reloading during development)
 
-## Requirements
+---
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Postman, Insomnia, or curl for API testing
+## 🚀 Getting Started
 
-## API Endpoints
+### 1. Clone the Repository
 
-The API will have the following endpoints:
+```bash
+git clone https://github.com/your-username/express-products-api.git
+cd express-products-api
+```
 
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a specific product
-- `POST /api/products`: Create a new product
-- `PUT /api/products/:id`: Update a product
-- `DELETE /api/products/:id`: Delete a product
+### 2. Install Dependencies
 
-## Submission
+```bash
+pnpm install
+```
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+### 3. Create Your `.env` File
 
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
+```bash
+cp .env.example .env
+```
 
-## Resources
+### 4. Start the Development Server
 
-- [Express.js Documentation](https://expressjs.com/)
-- [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+```bash
+pnpm dev
+```
+Server runs at: (http://localhost:3000)
+
+---
+
+## 🔐 Environment Variables
+
+| Variable | Description                    | Example |
+| -------- | ------------------------------ | ------- |
+| PORT     | Port to run the server on      | 3000    |
+| API_KEY  | Key required for secure routes | 123456  |
+
+---
+
+## 📚 API Endpoints
+
+| Method | Endpoint            | Description                | Protected |
+| ------ | ------------------- | -------------------------- | :-------: |
+| GET    | `/api/products`     | List all products          | ❌        |
+| GET    | `/api/products/:id` | Get a product by ID        | ❌        |
+| POST   | `/api/products`     | Create a new product       | ✅        |
+| PUT    | `/api/products/:id` | Update an existing product | ✅        |
+| DELETE | `/api/products/:id` | Delete a product           | ✅        |
+
+> **Note:** All protected routes require a valid `x-api-key` header with the correct value from `.env`.
+
+---
+
+## ✨ Advanced Features
+
+- 🎯 **Filter by Category**  
+  Endpoint: `GET /api/products?category=food`  
+  Example: `/api/products?category=electronics`
+
+- 📄 **Pagination**  
+  Endpoint: `GET /api/products?page=1&limit=5`  
+  Example: `/api/products?page=2&limit=3`
+
+- 🔍 **Search**  
+  Endpoint: `GET /api/products/search?name=tv`  
+  Example: `/api/products/search?name=laptop`
+
+- 📊 **Stats**  
+  Endpoint: `GET /api/products/stats`  
+  Example:
+
+---
+
+## 🧪 Testing the API
+
+You can test this API using:
+
+- **Postman** – Send requests to test all endpoints
+- **Insomnia** – Alternative REST client
+- **curl** – Test from terminal:
+
+```bash
+curl http://localhost:3000/api/products
+```
+
+---
+
+## 🛡️ Error Handling
+
+The API includes global error handling with:
+
+- Custom error messages
+- Appropriate HTTP status codes (400, 401, 403, 404, 500)
+- Safe fallbacks and validation checks
+
+---
+
+## ✍️ Author
+
+**Sylvester L. Kesa**  
+📧 (mailto:kesasylvesterlee@gmail.com)
+
+---
+
+## 🧾 License
+
+This project is open-source under the (LICENSE).
